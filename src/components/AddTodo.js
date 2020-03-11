@@ -22,7 +22,7 @@ export class AddTodo extends React.Component {
                 <input 
                     type="text" 
                     name="title" 
-                    placeholder="Add a new todo…" 
+                    placeholder="ADD A NEW TODO…" 
                     style={inputStyle}
                     value={this.state.title}
                     onChange={this.onChange}
@@ -47,7 +47,7 @@ const formStyle = {
 
 const inputStyle = {
     width: '100%',
-    fontSize: '1.5rem',
+    fontSize: '1.2rem',
     borderBottom: '1px solid #eee',
     marginRight: '2rem',
     padding: '.5rem',
@@ -56,12 +56,12 @@ const inputStyle = {
 
 const submitBtnStyle = {
     marginLeft: 'auto',
-    border: 'none',
+    border: '2px solid var(--primary)',
     fontWeight: 'bold',
     fontSize: '1rem',
-    background: 'var(--primary)',
-    padding: '0 1rem',
-    color: 'white',
+    padding: '0 2rem',
+    color: 'var(--primary)',
+    background: 'white',
     borderRadius: '.25rem'
 }
 

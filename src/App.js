@@ -1,8 +1,7 @@
 import React from 'react';
-import Header from './components/layout/Header'
-import Todos from './components/Todos'
-import AddTodo from './components/AddTodo'
-import { v4 as uuidv4 }  from 'uuid';
+import Header from './components/layout/Header';
+import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
 
 import './App.css';
 
@@ -68,12 +67,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="container">
-          <Header />
-          <AddTodo addTodo={this.addTodo} />
-          <Todos todos={this.state.todos} markComplete={this.markComplete} deleteTodo={this.deleteTodo}/>
-        </div>
+      <div className="container">
+        <Header />
+        <AddTodo addTodo={this.addTodo} />
+        <Todos todos={this.state.todos} markComplete={this.markComplete} deleteTodo={this.deleteTodo}/>
       </div>
     );
   }

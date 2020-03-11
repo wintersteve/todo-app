@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from '../css/TodoItem.module.css';
 
 export class TodoItem extends Component {
 
-    getStyle = () => {
+    getDivStyle = () => {
         return {
             display: 'flex',
-            margin: '.75rem .25rem',
+            margin: '1rem .25rem',
             borderRadius: '.25rem',
             textDecoration: this.props.todo.completed ? 'line-through' : 'none',
+            background: this.props.todo.completed ? '#f7f7f7' : 'var(--primary)',
+            transition: 'all 0.15s ease'
+        }
+    }
+
+    getBtnStyle = () => {
+        return {
+            padding: '.8rem 1.5rem',
+            border: 'none',
+            cursor: 'pointer',
             background: this.props.todo.completed ? '#f7f7f7' : 'var(--primary)',
             transition: 'all 0.15s ease'
         }
@@ -18,14 +29,14 @@ export class TodoItem extends Component {
         const { id, title, completed } = this.props.todo;
 
         return (
-            <div style={this.getStyle()}>
+            <div style={this.getDivStyle()} className={this.props.todo.completed ? '' : styles.active }>
                 
                 <label style={labelStyle} htmlFor={id}>
                     <p style={{ marginRight: '.5rem' }}>#{id}</p>
                     <p>{title}</p>
                 </label>
                 
-                <div style={{marginLeft: 'auto'}}>
+                <div>
                 
                     <input 
                         type="checkbox" 
@@ -35,8 +46,11 @@ export class TodoItem extends Component {
                         style={inputStyle}
                     />
                     
-                    <button onClick={this.props.deleteTodo.bind(this, id)} style={btnStyle}>
-                        <i style={{ 'fontSize': '1rem' }} className="fas fa-trash"></i>
+                    <button 
+                        onClick={this.props.deleteTodo.bind(this, id)} 
+                        style={this.getBtnStyle()}
+                    >
+                        <img src="./delete.svg" width="15" alt="trash bin"></img>
                     </button>
                 
                 </div>
@@ -51,18 +65,15 @@ TodoItem.propTypes = {
 
 const labelStyle = {
     display: 'flex',
+    alignItems: 'center',
     width: '100%',
-    padding: '.5rem .75rem',
-    userSelect: 'none'
+    padding: '.75rem .75rem',
+    userSelect: 'none',
+    cursor: 'pointer'
 }
 
 const inputStyle = {
     display: 'none'
-}
-
-const btnStyle = {
-    padding: '.8rem 1.5rem',
-    border: 'none'
 }
 
 export default TodoItem
