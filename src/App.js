@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './components/layout/Header';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
-
+import GithubLink from './components/layout/GithubLink';
 import './App.css';
 
 class App extends React.Component {
@@ -71,6 +71,7 @@ class App extends React.Component {
         <Header />
         <AddTodo addTodo={this.addTodo} />
         <Todos todos={this.state.todos} markComplete={this.markComplete} deleteTodo={this.deleteTodo}/>
+        <GithubLink />
       </div>
     );
   }

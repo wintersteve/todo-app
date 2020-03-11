@@ -20,7 +20,7 @@ export class TodoItem extends Component {
             padding: '.8rem 1.5rem',
             border: 'none',
             cursor: 'pointer',
-            background: this.props.todo.completed ? '#f7f7f7' : 'var(--primary)',
+            // background: this.props.todo.completed ? '#f7f7f7' : 'var(--primary)',
             transition: 'all 0.15s ease'
         }
     }
@@ -48,7 +48,8 @@ export class TodoItem extends Component {
                     
                     <button 
                         onClick={this.props.deleteTodo.bind(this, id)} 
-                        style={this.getBtnStyle()}
+                        style={{background: this.props.todo.completed ? '#f7f7f7' : 'var(--primary)'}}
+                        className={styles.btn}
                     >
                         <img src="./delete.svg" width="15" alt="trash bin"></img>
                     </button>
@@ -70,6 +71,7 @@ const labelStyle = {
     padding: '.75rem .75rem',
     userSelect: 'none',
     cursor: 'pointer'
+
 }
 
 const inputStyle = {

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import styles from '../css/AddTodo.module.css';
 
 export class AddTodo extends React.Component {
 
@@ -18,7 +19,7 @@ export class AddTodo extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit} style={formStyle}>
+            <form onSubmit={this.onSubmit} style={formStyle} className={styles.form}>
                 <input 
                     type="text" 
                     name="title" 
@@ -34,6 +35,7 @@ export class AddTodo extends React.Component {
                     type="submit" 
                     value="Submit"
                     style={submitBtnStyle}
+                    className={styles.btn}
                 />
             </form>
         )
@@ -42,7 +44,8 @@ export class AddTodo extends React.Component {
 
 const formStyle = {
     display: 'flex',
-    margin: '1rem 0 2rem',
+    margin: '1rem 0 4rem',
+    overflow: 'hidden'
 }
 
 const inputStyle = {
@@ -62,7 +65,8 @@ const submitBtnStyle = {
     padding: '0 2rem',
     color: 'var(--primary)',
     background: 'white',
-    borderRadius: '.25rem'
+    borderRadius: '.25rem',
+    outline: 'none'
 }
 
 export default AddTodo

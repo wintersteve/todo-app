@@ -1,11 +1,14 @@
-.active {
-    transition: all 0.15s ease;
-}
-
 .active p {
     color: white;
 }
 
 .active img {
     filter: invert(1);
+}
+
+.btn {
+    padding: .8rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
 }
