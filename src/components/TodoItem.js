@@ -20,7 +20,6 @@ export class TodoItem extends Component {
             padding: '.8rem 1.5rem',
             border: 'none',
             cursor: 'pointer',
-            // background: this.props.todo.completed ? '#f7f7f7' : 'var(--primary)',
             transition: 'all 0.15s ease'
         }
     }
@@ -36,7 +35,7 @@ export class TodoItem extends Component {
                     <p>{title}</p>
                 </label>
                 
-                <div>
+                <div style={{borderLeft: '3px solid white'}}>
                 
                     <input 
                         type="checkbox" 

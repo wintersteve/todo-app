@@ -11,4 +11,6 @@
     border: none;
     cursor: pointer;
     transition: all 0.15s ease;
+    outline: none;
+    user-select: none;
 }
