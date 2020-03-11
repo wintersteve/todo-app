@@ -1,11 +1,15 @@
 import React from 'react';
+
+// Import Components
 import Header from './components/layout/Header';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
+import ShowComponents from './components/layout/ShowComponents';
 import GithubLink from './components/layout/GithubLink';
+
 import './App.css';
 
-class App extends React.Component {
+class TodoApp extends React.Component {
 
   constructor(props) {
     super(props);
@@ -26,10 +30,10 @@ class App extends React.Component {
           title: 'Laundry',
           completed: false
         }
-      ]
+      ],
+      showComponents: false
     }
   }
-
 
   // Generate id
   getId = () => {
@@ -65,12 +69,17 @@ class App extends React.Component {
     this.setState({ todos: [...this.state.todos, newTodo]})
   }
 
+  toggleComponents = () => {
+    this.state.showComponents ? this.setState({ showComponents: false }) : this.setState({ showComponents: true });
+  }
+
   render() {
     return (
       <div className="container">
-        <Header />
-        <AddTodo addTodo={this.addTodo} />
-        <Todos todos={this.state.todos} markComplete={this.markComplete} deleteTodo={this.deleteTodo}/>
+        <Header showComponents={this.state.showComponents} />
+        <AddTodo showComponents={this.state.showComponents} addTodo={this.addTodo} />
+        <Todos showComponents={this.state.showComponents} todos={this.state.todos} markComplete={this.markComplete} deleteTodo={this.deleteTodo}/>
+        <ShowComponents toggleComponents={this.toggleComponents} showComponents={this.state.showComponents} />
         <GithubLink />
       </div>
     );
@@ -78,4 +87,4 @@ class App extends React.Component {
   
 }
 
-export default App;
+export default TodoApp;

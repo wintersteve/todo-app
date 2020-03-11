@@ -11,7 +11,7 @@ export class GithubLink extends Component {
 }
 
 const divStyle = {
-    marginTop: '7.5rem',
+    marginTop: '5rem',
     marginLeft: '.5rem'
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
-import Notification from './layout/Notification'
+import Notification from './layout/Notification';
+import Note from './layout/Note';
 import PropTypes from 'prop-types';
 
 class Todos extends React.Component {
@@ -14,7 +15,11 @@ class Todos extends React.Component {
         else 
         {
             return this.props.todos.map((todo) => (
-                <TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete} deleteTodo={this.props.deleteTodo}/>
+                <div key={ 'div' + todo.id } style={{position: 'relative'}}>
+                    <TodoItem todo={todo} markComplete={this.props.markComplete} deleteTodo={this.props.deleteTodo}/>
+                    <Note showComponents={this.props.showComponents} color='var(--primary)' />
+                </div>
+                
             ));
         }
     }

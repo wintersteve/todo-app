@@ -9,6 +9,7 @@
 .btn {
     padding: .8rem 1.5rem;
     border: none;
+    border-top-right-radius: .25rem;
     cursor: pointer;
     transition: all 0.15s ease;
     outline: none;

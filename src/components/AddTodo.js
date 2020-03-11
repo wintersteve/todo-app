@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../css/AddTodo.module.css';
+import Note from './layout/Note';
 
 export class AddTodo extends React.Component {
 
@@ -31,21 +32,24 @@ export class AddTodo extends React.Component {
                     required
                 />
 
-                <input 
+                {/* <input 
                     type="submit" 
-                    value="Submit"
+                    value="ADD"
                     style={submitBtnStyle}
                     className={styles.btn}
-                />
+                /> */}
+                <img src="./plus.svg" width="30" onClick={this.onSubmit} alt="Add button" style={imgStyle}></img>
+                <Note color="#F44336" showComponents={this.props.showComponents} /> 
             </form>
+        
         )
     }
 }
 
 const formStyle = {
+    position: 'relative',
     display: 'flex',
     margin: '1rem 0 4rem',
-    overflow: 'hidden'
 }
 
 const inputStyle = {
@@ -54,7 +58,8 @@ const inputStyle = {
     borderBottom: '1px solid #eee',
     marginRight: '2rem',
     padding: '.5rem',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    letterSpacing: '0.075rem'
 }
 
 const submitBtnStyle = {
@@ -67,6 +72,11 @@ const submitBtnStyle = {
     background: 'white',
     borderRadius: '.25rem',
     outline: 'none'
+}
+
+const imgStyle = {
+    position: 'relative',
+    right: '1.25rem'
 }
 
 export default AddTodo
