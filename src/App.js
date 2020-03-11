@@ -31,6 +31,16 @@ class App extends React.Component {
     }
   }
 
+
+  // Generate id
+  getId = () => {
+    if (this.state.todos.length === 0) {
+      return 1;
+    } else {
+      return this.state.todos[this.state.todos.length-1].id + 1;
+    }
+  }
+
   // Toggle Complete
   markComplete = (id) => {
     this.setState({ todos: this.state.todos.map( todo => {
@@ -49,7 +59,7 @@ class App extends React.Component {
   // Add Todo
   addTodo = title => {
     const newTodo = {
-      id: uuidv4(),
+      id: this.getId(),
       title: title,
       completed: false
     }

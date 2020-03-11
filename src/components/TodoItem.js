@@ -36,7 +36,7 @@ export class TodoItem extends Component {
                     />
                     
                     <button onClick={this.props.deleteTodo.bind(this, id)} style={btnStyle}>
-                        <i className="fas fa-trash"></i>
+                        <i style={{ 'fontSize': '1rem' }} className="fas fa-trash"></i>
                     </button>
                 
                 </div>
@@ -61,7 +61,7 @@ const inputStyle = {
 }
 
 const btnStyle = {
-    padding: '.8rem',
+    padding: '.8rem 1.5rem',
     border: 'none'
 }
 

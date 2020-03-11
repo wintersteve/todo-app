@@ -50,7 +50,8 @@ const inputStyle = {
     fontSize: '1.5rem',
     borderBottom: '1px solid #eee',
     marginRight: '2rem',
-    padding: '.5rem'
+    padding: '.5rem',
+    fontWeight: 'bold'
 }
 
 const submitBtnStyle = {
