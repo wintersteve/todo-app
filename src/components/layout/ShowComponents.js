@@ -4,17 +4,12 @@ export class ShowComponents extends Component {
     render() {
         return (
             <div>
-                <a style={btnStyle} onClick={this.props.toggleComponents}>
+                <button onClick={this.props.toggleComponents}>
                     { this.props.showComponents ? 'Hide components' : 'Show components' }
-                </a>
+                </button>
             </div>
         )
     }
-}
-
-const btnStyle = {
-    fontSize: '1rem',
-    cursor: 'pointer'
 }
 
 export default ShowComponents

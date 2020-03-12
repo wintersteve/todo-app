@@ -5,8 +5,11 @@ import Topbar from './components/layout/Topbar';
 import Header from './components/layout/Header';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
+import ExampleComponentClass from './components/layout/ExampleComponentClass';
 
+// Styling
 import './App.css';
+
 
 class TodoApp extends React.Component {
 
@@ -30,7 +33,8 @@ class TodoApp extends React.Component {
           completed: false
         }
       ],
-      showComponents: false
+      showComponents: false,
+      showComponentClass: false
     }
   }
 
@@ -72,17 +76,23 @@ class TodoApp extends React.Component {
     this.state.showComponents ? this.setState({ showComponents: false }) : this.setState({ showComponents: true });
   }
 
+  toggleComponentClass = () => {
+    this.state.showComponentClass ? this.setState({ showComponentClass: false }) : this.setState({ showComponentClass: true });
+  }
+
   render() {
     return (
       <div>
-        <Topbar toggleComponents={this.toggleComponents} showComponents={this.state.showComponents} />
+        <Topbar toggleComponents={this.toggleComponents} toggleComponentClass={this.toggleComponentClass} showComponents={this.state.showComponents} />
 
         {/* TodoApp Components */}
-        <div className="container" style={ this.state.showComponents === true ? { borderColor: '#9E9E9E' } : { borderColor: 'transparent' } }>
+        <div className="container" style={ this.state.showComponents && !this.state.showComponentClass ? { borderColor: '#9E9E9E' } : { borderColor: 'transparent' } }>
           <Header showComponents={this.state.showComponents} />
-          <AddTodo showComponents={this.state.showComponents} addTodo={this.addTodo} />
-          <Todos showComponents={this.state.showComponents} todos={this.state.todos} markComplete={this.markComplete} deleteTodo={this.deleteTodo}/>
+          { ! this.state.showComponentClass ? <AddTodo showComponents={this.state.showComponents} addTodo={this.addTodo} /> : '' } 
+          { ! this.state.showComponentClass ? <Todos showComponents={this.state.showComponents} todos={this.state.todos} markComplete={this.markComplete} deleteTodo={this.deleteTodo}/> : '' } 
         </div>
+
+        { this.state.showComponentClass ? <ExampleComponentClass /> : '' } 
 
       </div>
     );
