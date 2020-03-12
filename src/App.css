@@ -74,6 +74,10 @@ button {
   cursor: pointer;
 }
 
+strong {
+  font-weight: bold;
+}
+
 input[type="text"] {
   -webkit-appearance: none;
   border: none;
