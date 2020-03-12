@@ -96,7 +96,7 @@ class TodoApp extends React.Component {
 
         {/* TodoApp Components */}
         <div className="container" style={ this.state.showComponents && !this.state.showComponentClass ? { borderColor: '#9E9E9E' } : { borderColor: 'transparent' } }>
-          { this.state.showState ? <ExampleState todo={this.state.todos[this.state.todos.length-1]} /> : ' '}
+          { this.state.showState ? <ExampleState todo={this.state.todos[this.state.todos.length-1]} todos={this.state.todos} /> : ' '}
           <Header showComponents={this.state.showComponents} />
           { ! this.state.showComponentClass ? <AddTodo showComponents={this.state.showComponents} addTodo={this.addTodo} /> : '' } 
           { ! this.state.showComponentClass ? <Todos showComponents={this.state.showComponents} todos={this.state.todos} markComplete={this.markComplete} deleteTodo={this.deleteTodo}/> : '' } 

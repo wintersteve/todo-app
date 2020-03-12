@@ -7,13 +7,17 @@ export class ExampleState extends Component {
                 <p> { 'state = {' } </p>
                     <p style={ { marginLeft: '1.5rem', color: 'var(--primary)' } }> { 'todos: [' } </p>
                         <p style={ { marginLeft: '2.5rem' } }> { '{' } </p>
+
                             <p style={ { marginLeft: '4rem' } }>{ 'id: ' } {this.props.todo.id},</p>
                             <p style={ { marginLeft: '4rem' } }>{ 'title: ' } {this.props.todo.title},</p>
                             <p style={ { marginLeft: '4rem' } }><strong>{ 'completed: ' } {this.props.todo.completed ? 'true' : 'false'},</strong></p>
+
                         <p style={ { marginLeft: '2.5rem' } }>{ '}'}</p>
                     <p style={ { marginLeft: '1.5rem' } }>]</p>
                 <p>}</p>
             </div>
+
+            
         )
     }
 }
