@@ -5,7 +5,18 @@ import Note from './layout/Note';
 export class AddTodo extends React.Component {
 
     state = {
-        title: ''
+        title: '',
+        hovered: false
+    }
+
+    getImgStyle = () => {
+        return {
+            position: 'relative',
+            right: '1.3rem',
+            transform: this.state.hovered === true ? 'translateY(-.15rem)' : '',
+            transition: 'all 0.2s ease',
+            cursor: 'pointer'
+        }
     }
 
     onChange = (e) => {
@@ -18,9 +29,13 @@ export class AddTodo extends React.Component {
         this.setState({ title: '' });
     }
 
+    toggleHover = () => {
+        this.state.hovered === false ? this.setState( { hovered: true } ) : this.setState( { hovered: false } );
+    }
+
     render() {
         return (
-            <form onSubmit={this.onSubmit} style={formStyle} className={styles.form}>
+            <form onSubmit={this.onSubmit} style={{ borderColor: this.props.showComponents === true ? 'red' : 'transparent' }} className={styles.form}>
                 <input 
                     type="text" 
                     name="title" 
@@ -32,24 +47,21 @@ export class AddTodo extends React.Component {
                     required
                 />
 
-                {/* <input 
-                    type="submit" 
-                    value="ADD"
-                    style={submitBtnStyle}
-                    className={styles.btn}
-                /> */}
-                <img src="./plus.svg" width="30" onClick={this.onSubmit} alt="Add button" style={imgStyle}></img>
-                <Note color="#F44336" showComponents={this.props.showComponents} /> 
+                <img 
+                    src="./plus.svg" 
+                    width="30" 
+                    onClick={this.onSubmit}  
+                    onMouseEnter={ this.toggleHover }
+                    onMouseLeave={ this.toggleHover }
+                    alt="Add button" 
+                    style={this.getImgStyle()}
+                >
+                </img>
+                <Note color="#F44336" showComponents={this.props.showComponents} text="<AddTodo />" /> 
             </form>
         
         )
     }
-}
-
-const formStyle = {
-    position: 'relative',
-    display: 'flex',
-    margin: '1rem 0 4rem',
 }
 
 const inputStyle = {
@@ -57,26 +69,10 @@ const inputStyle = {
     fontSize: '1.2rem',
     borderBottom: '1px solid #eee',
     marginRight: '2rem',
+    marginLeft: '.25rem',
     padding: '.5rem',
     fontWeight: 'bold',
     letterSpacing: '0.075rem'
-}
-
-const submitBtnStyle = {
-    marginLeft: 'auto',
-    border: '2px solid var(--primary)',
-    fontWeight: 'bold',
-    fontSize: '1rem',
-    padding: '0 2rem',
-    color: 'var(--primary)',
-    background: 'white',
-    borderRadius: '.25rem',
-    outline: 'none'
-}
-
-const imgStyle = {
-    position: 'relative',
-    right: '1.25rem'
 }
 
 export default AddTodo

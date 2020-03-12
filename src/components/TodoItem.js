@@ -7,7 +7,6 @@ export class TodoItem extends Component {
     getDivStyle = () => {
         return {
             display: 'flex',
-            margin: '1rem .25rem',
             borderRadius: '.25rem',
             textDecoration: this.props.todo.completed ? 'line-through' : 'none',
             background: this.props.todo.completed ? '#f7f7f7' : 'var(--primary)',
@@ -27,12 +26,19 @@ export class TodoItem extends Component {
     render() {
         const { id, title, completed } = this.props.todo;
 
+        let checkmarkImg;
+        if (this.props.todo.completed) {
+            checkmarkImg = <img src="./check.svg" width="15" style={{ marginLeft: 'auto', marginRight: '.25rem' }} alt="checkmark" />;
+        }
+
         return (
             <div style={this.getDivStyle()} className={this.props.todo.completed ? '' : styles.active }>
                 
                 <label style={labelStyle} htmlFor={id}>
                     <p style={{ marginRight: '.5rem' }}>#{id}</p>
                     <p>{title}</p>
+                    
+                    {checkmarkImg}
                 </label>
                 
                 <div style={{borderLeft: '3px solid white'}}>

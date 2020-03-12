@@ -1,11 +1,10 @@
 import React from 'react';
 
 // Import Components
+import Topbar from './components/layout/Topbar';
 import Header from './components/layout/Header';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
-import ShowComponents from './components/layout/ShowComponents';
-import GithubLink from './components/layout/GithubLink';
 
 import './App.css';
 
@@ -75,12 +74,16 @@ class TodoApp extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <Header showComponents={this.state.showComponents} />
-        <AddTodo showComponents={this.state.showComponents} addTodo={this.addTodo} />
-        <Todos showComponents={this.state.showComponents} todos={this.state.todos} markComplete={this.markComplete} deleteTodo={this.deleteTodo}/>
-        <ShowComponents toggleComponents={this.toggleComponents} showComponents={this.state.showComponents} />
-        <GithubLink />
+      <div>
+        <Topbar toggleComponents={this.toggleComponents} showComponents={this.state.showComponents} />
+
+        {/* TodoApp Components */}
+        <div className="container" style={ this.state.showComponents === true ? { borderColor: '#9E9E9E' } : { borderColor: 'transparent' } }>
+          <Header showComponents={this.state.showComponents} />
+          <AddTodo showComponents={this.state.showComponents} addTodo={this.addTodo} />
+          <Todos showComponents={this.state.showComponents} todos={this.state.todos} markComplete={this.markComplete} deleteTodo={this.deleteTodo}/>
+        </div>
+
       </div>
     );
   }

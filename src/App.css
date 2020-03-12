@@ -28,6 +28,7 @@ time, mark, audio, video {
   box-sizing: border-box;
   font-family: Sen;
   color: var(--font-color);
+  user-select: none;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -54,6 +55,10 @@ q:before, q:after {
 	content: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -77,14 +82,15 @@ input[type="submit"] {
   background: #fdfdfd;
   max-width: 45rem;
   margin: 0 auto;
-  padding-top: 7.5rem;
-  min-height: 100vh;
+  margin-top: 5rem;
+  padding: 1.5rem;
+  border-radius: .25rem;
+  border: 2px solid transparent;
 }
 
 @media only screen and (max-width: 767.98px) {
   .container {
-    padding-top: 0;
-    padding: 1rem;
+    margin-top: 0;
   }
   
 }

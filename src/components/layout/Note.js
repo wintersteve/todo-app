@@ -19,7 +19,9 @@ export class Note extends Component {
         if (this.props.showComponents) {
             return (
                 <div>
-                    <small style={this.getStyle()}>Component</small>
+                    <small style={this.getStyle()}>
+                        {this.props.text}
+                    </small>
                 </div>
             )
         } else {
